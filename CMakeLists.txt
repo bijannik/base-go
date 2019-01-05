@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 3.12)
+project("Base Go")
+
+set(CMAKE_C_STANDARD 99)
+
+include_directories("${PROJECT_SOURCE_DIR}/core")
+include_directories("${PROJECT_SOURCE_DIR}/engine")
+include_directories("${PROJECT_SOURCE_DIR}/gtp")
+include_directories("${PROJECT_SOURCE_DIR}/sgf")
+include_directories("${PROJECT_SOURCE_DIR}/utils")
+
+add_subdirectory(core)
+add_subdirectory(engine)
+add_subdirectory(gtp)
+add_subdirectory(sgf)
+add_subdirectory(utils)
+
+set(SOURCE_FILES main.c)
+add_executable(Base_Go ${SOURCE_FILES})
+
+set(LIBRARIES Core Engine GTP SGF Utils)
+target_link_libraries(Base_Go ${LIBRARIES})
