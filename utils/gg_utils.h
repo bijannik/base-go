@@ -25,6 +25,7 @@
 #define _GG_UTILS_H_
 
 #include <stdarg.h>
+//// The following 3 lines are modified by Base Go for the purpose of simplicity and keeping only vital features
 #include "config.h"
 #include <sys/time.h>
 #include <time.h>

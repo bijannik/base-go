@@ -38,8 +38,9 @@
  * without prior written authorization of the copyright holder.  *
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+//// The following is commented by Base Go for the purpose of simplicity and keeping only vital features
 /* NOTE: GNU Go specific, workarounds dumb Windows sockets. */
-//#include "winsocket.h"
+// #include "winsocket.h"
 
 #include <stdarg.h>
 #include <stdio.h>

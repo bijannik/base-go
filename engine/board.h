@@ -27,7 +27,8 @@
 #include <stdarg.h>
 #include "config.h"
 #include "sgftree.h"
-//#include "winsocket.h"
+//// The following is commented by Base Go for the purpose of simplicity and keeping only vital features
+// #include "winsocket.h"
 
 /* This type is used to store each intersection on the board.
  *

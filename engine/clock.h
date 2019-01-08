@@ -24,6 +24,9 @@
 #ifndef _CLOCK_H_
 #define _CLOCK_H_
 
+//// The following is commented by Base Go for the purpose of simplicity and keeping only vital features
+// #include "gnugo.h"
+
 /* initialization and activation */
 void clock_settings(int maintime, int byotime, int byostones);
 void init_timers(void);
@@ -33,6 +36,16 @@ void clock_push_button(int color);
 void update_time_left(int color, int time_left, int stones);
 void clock_print(int color);
 int have_time_settings(void);
+
+//// The following is commented by Base Go for the purpose of simplicity and keeping only vital features
+// void adjust_level_offset(int color);
+
+//// The following is commented by Base Go for the purpose of simplicity and keeping only vital features
+/* Access to level settings. */
+// int get_level(void);
+// void set_level(int new_level);
+// void set_max_level(int new_max);
+// void set_min_level(int new_min);
 
 
 #endif  /* _CLOCK_H_ */
