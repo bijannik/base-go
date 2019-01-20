@@ -18,7 +18,9 @@
 
 #include "core.h"
 
+extern "C" {
 #include "engine/board.h"
+}
 
 //
 // Use this function to reset your engine and prepare it for a new game

@@ -1,28 +1,30 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 
+extern "C" {
 #include "gtp/play_gtp.c"
+}
 
-char *gtpfile = NULL;
-char *gtp_dump_commands_file = NULL;
+char *gtpfile = nullptr;
+char *gtp_dump_commands_file = nullptr;
 int orientation = 0;  // [0, 7]
 
 int main() {
     FILE *gtp_input_FILE = stdin;
     FILE *gtp_output_FILE = stdout;
-    FILE *gtp_dump_commands_FILE = NULL;
+    FILE *gtp_dump_commands_FILE = nullptr;
 
-    if (gtpfile != NULL) {
+    if (gtpfile != nullptr) {
         gtp_input_FILE = fopen(gtpfile, "r");
-        if (gtp_input_FILE == NULL) {
+        if (gtp_input_FILE == nullptr) {
             fprintf(stderr, "Cannot open file %s\n", gtpfile);
             return EXIT_FAILURE;
         }
     }
 
-    if (gtp_dump_commands_file != NULL) {
+    if (gtp_dump_commands_file != nullptr) {
         gtp_dump_commands_FILE = fopen(gtp_dump_commands_file, "w");
-        if (gtp_dump_commands_FILE == NULL) {
+        if (gtp_dump_commands_FILE == nullptr) {
             fprintf(stderr, "Cannot open file %s\n",
                     gtp_dump_commands_file);
             return EXIT_FAILURE;

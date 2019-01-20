@@ -19,7 +19,15 @@
 #ifndef BASEGO_CORE_H_
 #define BASEGO_CORE_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void reset();
 int play(int color);
+
+#ifdef __cplusplus
+}  // closing brace for extern "C"
+#endif
 
 #endif  // BASEGO_CORE_H_
