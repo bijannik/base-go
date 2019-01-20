@@ -3,20 +3,12 @@ project("Base Go")
 
 set(CMAKE_C_STANDARD 99)
 
-include_directories("${PROJECT_SOURCE_DIR}/core")
-include_directories("${PROJECT_SOURCE_DIR}/engine")
-include_directories("${PROJECT_SOURCE_DIR}/gtp")
-include_directories("${PROJECT_SOURCE_DIR}/sgf")
-include_directories("${PROJECT_SOURCE_DIR}/utils")
-
 add_subdirectory(core)
 add_subdirectory(engine)
 add_subdirectory(gtp)
 add_subdirectory(sgf)
 add_subdirectory(utils)
 
-set(SOURCE_FILES main.c)
-add_executable(BaseGo ${SOURCE_FILES})
-
-set(LIBRARIES Core Engine GTP SGF Utils)
-target_link_libraries(BaseGo ${LIBRARIES})
+add_executable(BaseGo main.c)
+target_include_directories(BaseGo PUBLIC ${PROJECT_SOURCE_DIR})
+target_link_libraries(BaseGo GTP)

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "play_gtp.c"
+
+#include "gtp/play_gtp.c"
 
 char *gtpfile = NULL;
 char *gtp_dump_commands_file = NULL;
