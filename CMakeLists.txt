@@ -16,7 +16,7 @@ add_subdirectory(sgf)
 add_subdirectory(utils)
 
 set(SOURCE_FILES main.c)
-add_executable(Base_Go ${SOURCE_FILES})
+add_executable(BaseGo ${SOURCE_FILES})
 
 set(LIBRARIES Core Engine GTP SGF Utils)
-target_link_libraries(Base_Go ${LIBRARIES})
+target_link_libraries(BaseGo ${LIBRARIES})
