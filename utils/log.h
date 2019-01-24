@@ -16,29 +16,23 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-#include "core.h"
+#ifndef BASEGO_UTILS_LOG_H_
+#define BASEGO_UTILS_LOG_H_
 
-extern "C" {
-#include "engine/board.h"
-}
-#include "utils/log.h"
+#include <boost/log/sources/global_logger_storage.hpp>
+#include <boost/log/sources/severity_logger.hpp>
+#include <boost/log/trivial.hpp>
 
-//
-// Use this function to reset your engine and prepare it for a new game
-//
-void reset() {
-    // TODO: Your code for resetting your engine goes here...
-}
+namespace logging = boost::log;
 
-//
-// Should return a move for the input color
-//
-// If your move is to, say, place a stone on position (i, j) of the board, return POS(i, j)
-// Otherwise you may return PASS_MOVE
-//
-int play(int color) {
-    int move = PASS_MOVE;
-    INFO_LOG << "New Move for " << ((color == 1) ? "White" : "Black");
-    // TODO: Your code for generating a move goes here...
-    return move;
-}
+BOOST_LOG_INLINE_GLOBAL_LOGGER_DEFAULT(sev_logger, logging::sources::severity_logger< logging::trivial::severity_level >)
+
+void init_logger();
+
+void end_logger();
+
+#define DEBUG_LOG BOOST_LOG_SEV(sev_logger::get(), logging::trivial::debug)
+#define INFO_LOG BOOST_LOG_SEV(sev_logger::get(), logging::trivial::info)
+#define WARNING_LOG BOOST_LOG_SEV(sev_logger::get(), logging::trivial::warning)
+
+#endif  // BASEGO_UTILS_LOG_H_

@@ -12,4 +12,4 @@ add_subdirectory(utils)
 
 add_executable(BaseGo main.cpp)
 target_include_directories(BaseGo PUBLIC ${PROJECT_SOURCE_DIR})
-target_link_libraries(BaseGo GTP)
+target_link_libraries(BaseGo GTP Log)

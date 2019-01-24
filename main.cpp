@@ -4,12 +4,18 @@
 extern "C" {
 #include "gtp/play_gtp.c"
 }
+#include "utils/log.h"
 
 char *gtpfile = nullptr;
 char *gtp_dump_commands_file = nullptr;
 int orientation = 0;  // [0, 7]
 
 int main() {
+    init_logger();
+    // FIXME: Remove test logs
+    DEBUG_LOG << "Debug Test";
+    INFO_LOG << "Info Test";
+    WARNING_LOG << "Warning Test";
     FILE *gtp_input_FILE = stdin;
     FILE *gtp_output_FILE = stdout;
     FILE *gtp_dump_commands_FILE = nullptr;
@@ -36,5 +42,6 @@ int main() {
     if (gtp_dump_commands_FILE)
         fclose(gtp_dump_commands_FILE);
 
+    end_logger();
     return 0;
 }
