@@ -36,7 +36,7 @@ void init_logger() {
     // backend setup
     boost::shared_ptr< logging::sinks::text_file_backend > backend =
             boost::make_shared< logging::sinks::text_file_backend >(
-                    logging::keywords::file_name = "Base Go.log"
+                    logging::keywords::file_name = "BaseGo.log"
             );
     backend->auto_flush(true);
 
