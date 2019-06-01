@@ -19,6 +19,9 @@
 #ifndef BASEGO_UTILS_LOG_H_
 #define BASEGO_UTILS_LOG_H_
 
+#include "utils/config.h"
+
+#ifdef LOGGER_ENABLED
 #include <boost/log/sources/global_logger_storage.hpp>
 #include <boost/log/sources/severity_logger.hpp>
 #include <boost/log/trivial.hpp>
@@ -34,5 +37,11 @@ void end_logger();
 #define DEBUG_LOG BOOST_LOG_SEV(sev_logger::get(), logging::trivial::debug)
 #define INFO_LOG BOOST_LOG_SEV(sev_logger::get(), logging::trivial::info)
 #define WARNING_LOG BOOST_LOG_SEV(sev_logger::get(), logging::trivial::warning)
+#else
+#include <iostream>
+#define DEBUG_LOG std::cerr << "DEBUG: "
+#define INFO_LOG std::cerr << "INFO: "
+#define WARNING_LOG std::cerr << "WARNING: "
+#endif
 
 #endif  // BASEGO_UTILS_LOG_H_

@@ -4,6 +4,7 @@
 extern "C" {
 #include "gtp/play_gtp.c"
 }
+#include "utils/config.h"
 #include "utils/log.h"
 
 char *gtpfile = nullptr;
@@ -11,7 +12,9 @@ char *gtp_dump_commands_file = nullptr;
 int orientation = 0;  // [0, 7]
 
 int main() {
+#ifdef LOGGER_ENABLED
     init_logger();
+#endif
     // FIXME: Remove test logs
     DEBUG_LOG << "Debug Test";
     INFO_LOG << "Info Test";
@@ -42,6 +45,8 @@ int main() {
     if (gtp_dump_commands_FILE)
         fclose(gtp_dump_commands_FILE);
 
+#ifdef LOGGER_ENABLED
     end_logger();
+#endif
     return 0;
 }
