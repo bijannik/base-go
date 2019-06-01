@@ -4,7 +4,6 @@ add_library(Utils STATIC ${SOURCE_FILES})
 
 # Log Library
 set(Boost_USE_STATIC_LIBS OFF)
-set(Boost_USE_MULTITHREAD OFF)
 set(Boost_COMPILE_DEFINITIONS BOOST_LOG_DYN_LINK)
 find_package(Boost 1.67.0 REQUIRED COMPONENTS log)
 
